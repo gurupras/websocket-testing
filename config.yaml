@@ -1,0 +1,16 @@
+type: production
+backend:
+  logging:
+    logdir: logs
+server:
+  dev:
+    http_port: 3231
+    https_port: 3230
+  production:
+    http_port: 3231
+    https_port: 3230
+  force_https: true
+  https:
+    key: ./localhost.key
+    cert: ./localhost.crt
+  proxy_path: &proxypath https://localhost:3230/

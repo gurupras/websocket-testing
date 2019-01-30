@@ -1,3 +1,6 @@
+localhost.key
+localhost.crt
+
 .DS_Store
 node_modules
 /dist

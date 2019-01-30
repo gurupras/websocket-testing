@@ -8,6 +8,27 @@
   </div>
 </template>
 
+<script>
+export default {
+  name: 'app',
+  mounted () {
+    const ws = new WebSocket(`wss://${window.location.host}/websocket`)
+
+    // event emmited when connected
+    ws.onopen = function () {
+      console.log('websocket is connected ...')
+      // sending a send event to websocket server
+      ws.send('connected')
+    }
+
+    // event emmited when receiving message
+    ws.onmessage = function (ev) {
+      console.log(ev)
+    }
+    window.ws = ws
+  }
+}
+</script>
 <style lang="scss">
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
