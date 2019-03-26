@@ -4,9 +4,9 @@ const proxyPath = config.server.proxy_path
 module.exports = {
   devServer: {
     host: '0.0.0.0',
-    port: 8080,
+    port: 3232,
     disableHostCheck: true,
-    public: 'localhost',
+    public: 'dev.twoseven.xyz',
     https: config.server.https,
     proxy: {
       '/socket.io': {

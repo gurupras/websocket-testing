@@ -1,14 +1,12 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
     <router-view/>
   </div>
 </template>
 
 <script>
+import io from 'socket.io-client'
+
 export default {
   name: 'app',
   mounted () {
@@ -26,6 +24,10 @@ export default {
       console.log(ev)
     }
     window.ws = ws
+
+    const socket = io(`wss://${window.location.host}:3230`)
+    window.socket = socket
+    socket.on('message', (msg) => console.log(JSON.stringify(msg)))
   }
 }
 </script>
